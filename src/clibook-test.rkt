@@ -1,3 +1,5 @@
 #lang racket
 
-"hello world"
+(require "pipeline.rkt")
+
+(make-pipe (list "hello world"))
