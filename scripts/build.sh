@@ -1,2 +1,2 @@
 mkdir -p bin
-raco exe -o bin/clibook-test src/clibook-test.rkt 
+raco exe -o bin/clibook src/clibook.rkt 
