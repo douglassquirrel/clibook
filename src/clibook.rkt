@@ -3,7 +3,8 @@
 (require "request-to-fb.rkt"
          "fb-to-urls.rkt"
          "visit-url.rkt"
-         "visit-url-test.rkt")
+         "visit-url-test.rkt"
+         "result-to-string.rkt")
 
 (define url-visitor (make-parameter visit-url))
 
@@ -16,11 +17,10 @@
         #:args requests
         requests))
 
-(display (url-visitor))
-
 (define (listify p) (compose1 flatten (curry map p)))  
-(define pipeline (compose1 (listify (url-visitor))
+(define pipeline (compose1 (listify result-to-string)
+                           (listify (url-visitor))
                            (listify fb-to-urls)
                            request-to-fb))
 
-(map pipeline requests)
+(flatten (map pipeline requests))
