@@ -23,4 +23,6 @@
                            (listify fb-to-urls)
                            request-to-fb))
 
-(flatten (map pipeline requests))
+(define display-results (flatten (map pipeline requests)))
+(display (string-join display-results "\n"))
+(newline)
