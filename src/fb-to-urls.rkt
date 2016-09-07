@@ -2,12 +2,13 @@
 
 (provide fb-to-urls)
 
-(define token "TEST-TOKEN")
+(define homedir (find-system-path 'home-dir))
+(define fb-token (file->string (build-path homedir ".clibook-token")))
 (define version "2.7")
 
 (define (make-url fragment) (string-append "https://graph.facebook.com/v"
                              version fragment
-                             "?access_token=" token))
+                             "?access_token=" fb-token))
 
 (define (fb-to-urls fb-request)
     (case fb-request
