@@ -3,4 +3,4 @@
 (provide make-pipe)
 
 (define (make-pipe elements)
-	elements)
+	(car elements))
