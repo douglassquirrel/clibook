@@ -1,12 +1,12 @@
 #lang racket
 
-(require "pipeline.rkt")
+(require "request-to-fb.rkt")
 
-;(make-pipe (list "hello world"))
+(define pipeline (compose1 request-to-fb))
 
 (define requests
     (command-line
         #:args requests
         requests))
 
-requests
+(map pipeline requests)
