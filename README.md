@@ -1,2 +1,3 @@
 # clibook
-Command-line access to Facebook graph
+
+Command-line access to Facebook graph.
