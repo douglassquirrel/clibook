@@ -9,7 +9,7 @@
                              version fragment
                              "?access_token=" token))
 
-(define (fb-to-urls r)
-    (case r
+(define (fb-to-urls fb-request)
+    (case fb-request
         [("me") (list (make-url "/me"))]
-        [else (raise-argument-error 'fb-to-urls "known request" r)]))
+        [else (raise-argument-error 'fb-to-urls "known request" fb-request)]))
