@@ -18,8 +18,7 @@ To set up token:
 
 5. Visit
 
- https://graph.facebook.com/v2.3/oauth/access_token?
-    client_id=[app id]&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=[app secret]&code=[code from step 4]
+ https://graph.facebook.com/v2.3/oauth/access_token?client_id=[app id]&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=[app secret]&code=[code from step 4]
 
  This returns
 
