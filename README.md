@@ -3,6 +3,7 @@
 Command-line access to Facebook graph.
 
 To set up token:
+
 1. Set up an app in Facebook - see https://developers.facebook.com/docs/apps/register 
 
 2. Set yourself as a developer on the app.
