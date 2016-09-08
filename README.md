@@ -23,9 +23,9 @@ To set up token:
 
  This returns
 
- '''
+ ```
  {"access_token":[token],"token_type":"bearer","expires_in":[number of seconds]}
- '''
+ ```
 
 6. If you want to verify the token and its expiry:
 
@@ -33,4 +33,4 @@ To set up token:
 
  The expiry date from the resulting JSON is a Unix timestamp.
 
-7. Store the token in a file called '.clibook-token' in your home directory.
+7. Store the token in a file called `.clibook-token` in your home directory.
