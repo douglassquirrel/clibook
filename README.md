@@ -26,3 +26,5 @@ This returns
 graph.facebook.com/debug_token?input_token=[token from step 5]
 &access_token=[same token from step 5]
 The expiry date from resulting JSON is a Unix timestamp.
+
+7. Store the token in a file called .clibook-token in your home directory.
