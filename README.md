@@ -23,14 +23,14 @@ To set up token:
 
  This returns
 
- '''javascript
+ '''
  {"access_token":[token],"token_type":"bearer","expires_in":[number of seconds]}
  '''
 
 6. If you want to verify the token and its expiry:
 
- graph.facebook.com/debug_token?input_token=[token from step 5]&access_token=[same token from step 5]
+ https://graph.facebook.com/debug_token?input_token=[token from step 5]&access_token=[same token from step 5]
 
  The expiry date from the resulting JSON is a Unix timestamp.
 
-7. Store the token in a file called .clibook-token in your home directory.
+7. Store the token in a file called '.clibook-token' in your home directory.
