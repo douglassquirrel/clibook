@@ -4,7 +4,11 @@
 
 (provide result-to-string)
 
+(define (replace-hash-value h key s)
+    (string-replace s (format "%~a%" key) (hash-ref h key)))
+
+(define (sprintf-hash form h)
+    (foldl ((curry replace-hash-value) h) form (hash-keys h)))
+
 (define (result-to-string r) 
-    (define h (string->jsexpr r))
-    (define username (hash-ref h 'name))
-    (string-append "Your name is " username))
+    (sprintf-hash "Your name is %name%" (string->jsexpr r)))
