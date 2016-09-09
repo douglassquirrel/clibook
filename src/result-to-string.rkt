@@ -18,8 +18,8 @@
 
 (define (result-to-string r) 
     (define path (remove-version-prefix (url-result-path r)))
-    (define result-json (url-result-content r))
+    (define result-hash (string->jsexpr (url-result-content r)))
     (define f (hash-ref path-to-format-hash path
                         (lambda () (raise-argument-error 'result-to-string
                                                          "known path" path))))
-    (sprintf-hash f (string->jsexpr result-json)))
+    (sprintf-hash f result-hash))
