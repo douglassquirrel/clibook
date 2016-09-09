@@ -10,9 +10,11 @@
                              version fragment
                              "?access_token=" fb-token))
 
-(define fb-to-urls-hash (hash "me" (list (make-url "/me"))))
+(define fb-to-urls-hash (hash "me" (list "/me")))
 
 (define (fb-to-urls r)
-    (hash-ref fb-to-urls-hash r
-              (lambda () (raise-argument-error 'fb-to-urls
-                                               "known request" r))))
+    (define paths (hash-ref fb-to-urls-hash r
+                            (lambda () (raise-argument-error 'fb-to-urls
+                                                             "known request"
+                                                             r))))
+    (map make-url paths))
