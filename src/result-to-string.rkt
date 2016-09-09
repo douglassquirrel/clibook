@@ -19,7 +19,5 @@
 (define (result-to-string r) 
     (define path (remove-version-prefix (url-result-path r)))
     (define result-hash (string->jsexpr (url-result-content r)))
-    (define f (hash-ref path-to-format-hash path
-                        (lambda () (raise-argument-error 'result-to-string
-                                                         "known path" path))))
+    (define f (hash-ref path-to-format-hash path))
     (sprintf-hash f result-hash))

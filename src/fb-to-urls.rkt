@@ -13,8 +13,6 @@
 (define fb-to-urls-hash (hash "me" (list "/me")))
 
 (define (fb-to-urls r)
-    (define paths (hash-ref fb-to-urls-hash r
-                            (lambda () (raise-argument-error 'fb-to-urls
-                                                             "known request"
-                                                             r))))
+    (define paths (hash-ref fb-to-urls-hash r))
+
     (map make-url paths))
