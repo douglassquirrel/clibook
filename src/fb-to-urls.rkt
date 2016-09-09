@@ -1,5 +1,7 @@
 #lang racket
 
+(require "hashes.rkt")
+
 (provide fb-to-urls)
 
 (define homedir (find-system-path 'home-dir))
@@ -10,9 +12,6 @@
                              version fragment
                              "?access_token=" fb-token))
 
-(define fb-to-urls-hash (hash "me" (list "/me")))
-
 (define (fb-to-urls r)
     (define paths (hash-ref fb-to-urls-hash r))
-
     (map make-url paths))

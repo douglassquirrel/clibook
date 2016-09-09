@@ -1,11 +1,10 @@
 #lang racket
 
 (require json
+         "hashes.rkt"
          "url-result.rkt")
 
 (provide result-to-string)
-
-(define path-to-format-hash (hash "me" "Your name is %name%"))
 
 (define (remove-version-prefix path)
     (regexp-replace #rx"^v[^/]*/" path ""))
