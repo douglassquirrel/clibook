@@ -1,8 +1,13 @@
 #lang racket
 
-(require net/url)
+(require net/url
+         "url-result.rkt")
 
 (provide visit-url)
 
-(define (visit-url u)
-    (port->string (get-pure-port (string->url u))))
+(define (extract-path u)
+    (string-join (map path/param-path (url-path u)) "/"))
+
+(define (visit-url url-string)
+    (define u (string->url url-string))
+    (url-result (extract-path u) (port->string (get-pure-port u))))
