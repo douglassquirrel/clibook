@@ -1,15 +1,9 @@
 #lang racket
 
 (require json
-         net/url)
+         "urls.rkt")
 
 (provide urls-to-hashes)
-
-(define (extract-path u)
-    (string-join (map path/param-path (url-path u)) "/"))
-
-(define (slurp u)
-    (port->string (get-pure-port u)))
 
 (define (stringify-keys h)
     (define (stringify-key assoc new-hash)
@@ -21,7 +15,6 @@
     (hash-set h (extract-path url) result))
 
 (define (urls-to-hashes url-strings)
-    (define urls (map string->url url-strings))
-    (define paths (map extract-path urls))
-    (define hashes (foldl url-to-hash (hash) urls))
+    (define paths (map extract-path url-strings))
+    (define hashes (foldl url-to-hash (hash) url-strings))
     (map (lambda (path) (list path (hash-ref hashes path))) paths))
