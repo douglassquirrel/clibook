@@ -1,7 +1,7 @@
 #lang racket
 
 (require "hashes.rkt"
-         "sprintf-hash.rkt")
+         "sprintf-dict.rkt")
 
 (provide result-to-string)
 
@@ -9,4 +9,4 @@
     (define path (first r))
     (define result-hash (second r))
     (define f (hash-ref path-to-format-hash path))
-    (sprintf-hash f result-hash))
+    (sprintf-dict f result-hash))
