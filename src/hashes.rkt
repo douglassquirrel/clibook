@@ -8,4 +8,4 @@
 
 (define fb-to-urls-hash (hash "me" (list "/me")))
 
-(define path-to-format-hash (hash "me" "Your name is %name%"))
+(define path-to-format-hash (hash "/me" "Your name is %name%"))
