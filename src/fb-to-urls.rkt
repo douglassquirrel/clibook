@@ -5,10 +5,10 @@
 (provide fb-to-urls)
 
 (define homedir (find-system-path 'home-dir))
-(define fb-token (file->string (build-path homedir ".clibook-token")))
+(define token (file->string (build-path homedir ".clibook-token")))
 
-(define (make-url fragment) (string-append "https://graph.facebook.com/"
-                             fragment "?access_token=" fb-token))
+(define (make-url path) (string-append "https://graph.facebook.com/"
+                                       path "?access_token=" token))
 
 (define (fb-to-urls r)
     (define paths (hash-ref fb-to-urls-hash r))
